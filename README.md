@@ -35,18 +35,15 @@ mkdir trimmed_fastqs
 conda env list
 conda activate qiime2-2022.8
 
+
+# HAVE NOT DONE ANY STEPS BELOW, GOT AN ERROR WHEN ENTERING THE QIIME TOOLS IMPORT STEP
 qiime tools import \
    --type "SampleData[PairedEndSequencesWithQuality]"  \
    --input-format CasavaOneEightSingleLanePerSampleDirFmt \
    --input-path <path to your output directory of trimmed fastqs> \
    --output-path <path to an output directory>/<a name for the output files> \
 
-qiime tools import \
-   --type "SampleData[PairedEndSequencesWithQuality]"  \
-   --input-format CasavaOneEightSingleLanePerSampleDirFmt \
-   --input-path </home/users/aws1020/trimmed_fastqs> \
-   --output-path </home/users/aws1020/trimmed_fastqs>/<Output_Files> \
-# Have not done this step above
+qiime tools import --type "SampleData[PairedEndSequencesWithQuality]" --input-format CasavaOneEightSingleLanePerSampleDirFmt --input-path trimmed_fastqs --output-path trimmed_fastqs/Imported_files
 
 # Step 3:
 qiime cutadapt trim-paired \
@@ -82,3 +79,6 @@ qiime metadata tabulate \
 qiime feature-table tabulate-seqs \
         --i-data <path to an output directory>/rep-seqs.qza \
         --o-visualization <path to an output directory>/rep-seqs.qzv
+
+
+# # # # END OF LAB 9 # # # #
